@@ -10,6 +10,38 @@ const instance = axios.create({
     }
 })
 
-export const getAllTarefas = () => {
-    return instance.get('/tarefas')
+export const getAllTarefas = async () => {
+    return new Promise((resolve, reject) => {
+        instance.get('/tarefas').then(result => {
+            console.log(result)
+
+            if (result.statusText === 'OK') {
+                resolve(result)
+            } else {
+                reject({
+                    error: true
+                })
+            }
+        })
+    })
+}
+
+export const udpateTask = (task) => {
+    return instance.put('/tarefas', task)
+}
+
+export const createTask = async (task) => {
+    return new Promise((resolve, reject) => {
+        instance.post('/tarefas', task).then(result => {
+
+            if (result) {
+                resolve(result)
+            } else {
+                reject()
+            }
+
+        }).catch(err => {
+            resolve({error: true, err})
+        })
+    })
 }

@@ -1,15 +1,17 @@
 import React from 'react';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+
+import { Header } from './components/Header'
+import { TodoList } from './components/TodoList'
+import { AddList } from './components/AddList'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Counter />
-      </header>
-    </div>
-  );
+    return (
+        <>
+          <Header />
+          <AddList />
+          <TodoList />
+        </>
+    );
 }
 
 export default App;
