@@ -19,3 +19,23 @@ export const InnerContainer = styled.div`
 
     transition: transform 1s ease-in-out;
 `
+
+export const ControlFilterContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 2rem;
+    color: grey;
+    font-weight: 300;
+
+    @media (min-width: 70em) {
+        width: 70%;
+        margin: 0 auto;
+        margin-bottom: 3rem;
+    }
+`
+export const Svg = styled.img`
+    width: 2rem;
+    height: 2rem;
+`

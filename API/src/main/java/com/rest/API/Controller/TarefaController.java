@@ -18,17 +18,20 @@ public class TarefaController {
     @Autowired
     TarefasRepository tarefasRepository;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping
     public List<Tarefa> getAllTarefas() {
         return tarefasRepository.findAll();
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Tarefa createTarefa(@RequestBody Tarefa tarefa) {
         return tarefasRepository.save(tarefa);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PutMapping("/{id}")
     public Tarefa updateTarefa(@PathVariable(value = "id") Long id, @RequestBody Tarefa task) throws GlobalErrorException {
         Tarefa t = tarefasRepository.findById(id)

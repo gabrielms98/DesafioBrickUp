@@ -3,7 +3,7 @@ import { COLORS } from '../../scss/_variables'
 
 export const Container = styled.div`
     height: 4rem;
-    width: 100vw;
+    width: 100%;
     background: ${COLORS.purple};
 
     transition: height .5s ease-in-out;
@@ -19,7 +19,7 @@ export const InnerContainer = styled.div`
     border-top-right-radius: 2rem;
 
     padding: 1rem 2rem;
-    transform: translateY(1px); //GAMBIARRA POR CAUSA DO CHROME
+    transform: translateY(3px); //GAMBIARRA POR CAUSA DO CHROME
 
     display: flex;
     flex-direction: column;
@@ -40,6 +40,7 @@ export const ButtonAdd = styled.a`
 
 export const FormContainer = styled.div`
     width: 90vw;
+    max-width: 50rem;
     height: 100%;
     padding: 3rem 2rem;
 
@@ -58,7 +59,7 @@ export const InputFile = styled.input`
 
 export const InputLabel = styled.label`
     width: 100%;
-    height: 6rem;
+    height: 15vh;
     border: 1px dashed grey;
     border-radius: .75rem;
 
@@ -74,7 +75,7 @@ export const InputLabel = styled.label`
 
     margin-bottom: 1rem;
 
-    ${props => props.image ? `background-image: url(${props.image}); font-size: 0;` : 'cursor: pointer;'}
+    ${props => props.image ? `background-image: url(${props.image}); font-size: 0; border: none;` : 'cursor: pointer;'}
 `
 
 export const Svg = styled.img`

@@ -1,16 +1,27 @@
 import React from 'react'
 import { Container, Img, TextContainer, Status } from './styles'
 
-export const Todo = (task) => {
+import { updateTask } from '../../features/tarefas/tarefaSlice'
+import { useDispatch } from 'react-redux'
+
+export const Todo = ({task}) => {
+
+    const dispatch = useDispatch()
+
+    const markTask = () => {
+        let newTask = JSON.parse(JSON.stringify(task))
+        newTask.concluido = !newTask.concluido
+        dispatch(updateTask(newTask))
+    }
 
     return (
         <Container>
-            <Img />
+            <Img src={task.image}/>
             <TextContainer>
-                <div>alou</div>
-                <div>asdsa</div>
+                <div>{task.nome}</div>
+                <div>{new Date().toLocaleDateString()}</div>
             </TextContainer>
-            <Status />
+            <Status status={task.concluido} onClick={() => markTask()}/>
         </Container>
     )
 }

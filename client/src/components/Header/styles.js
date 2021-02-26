@@ -7,7 +7,7 @@ export const Container = styled.div`
 
     color: white;
 
-    padding: 4rem 2rem .5rem 2rem;
+    padding: 1rem 2rem 2rem 2rem;
 `
 
 export const Title = styled.h3`

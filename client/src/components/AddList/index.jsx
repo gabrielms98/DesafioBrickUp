@@ -38,8 +38,18 @@ export const AddList = () => {
 
     const sendTask = () => {
         if (!imgSrc || !nome) return
+        const reader = new FileReader()
 
-        dispatch(createTask({ nome, image: imgSrc, concluido: false }))
+        reader.onload = async () => {
+            const base64 = reader.result;
+            await dispatch(createTask({ nome, image: base64, concluido: false })) 
+
+            setImage(null)
+            setNome('')
+            addTask()
+        }
+
+        reader.readAsDataURL(imgSrc)
     }
 
     const saveImage = (event) => {

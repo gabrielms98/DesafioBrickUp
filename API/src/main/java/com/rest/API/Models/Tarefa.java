@@ -3,6 +3,7 @@ package com.rest.API.Models;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.sql.Blob;
 
 @Data
 @Entity
@@ -17,12 +18,12 @@ public class Tarefa {
 
     @Lob
     @Column(nullable = true)
-    private byte[] image;
+    private String image;
 
     @Column(nullable = false)
     private Boolean concluido;
 
-    public Tarefa(String nome, byte[] image, Boolean concluido) {
+    public Tarefa(String nome, String image, Boolean concluido) {
         this.nome = nome;
         this.image = image;
         this.concluido = concluido;
@@ -48,11 +49,11 @@ public class Tarefa {
         this.nome = nome;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
